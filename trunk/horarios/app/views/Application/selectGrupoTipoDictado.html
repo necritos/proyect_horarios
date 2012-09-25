@@ -1,0 +1,61 @@
+                <ul class="nav nav-tabs span6" id="myTab" >           
+                #{list listaGrupoTipoDictado, as:'GrupoTipoDictado'}
+                        <li class=""><a onclick="traerInfoHorario('${GrupoTipoDictado.gtd_iId}','hgtd_${GrupoTipoDictado.cursoTipoDictado.tipoDictado.tid_vCodigo}')" href="#g${GrupoTipoDictado.cursoTipoDictado.tipoDictado.tid_vCodigo}">${GrupoTipoDictado.cursoTipoDictado.tipoDictado.tid_vNombre}</a></li>
+                #{/list}
+                </ul>
+                <div class="tab-content">
+                #{list listaGrupoTipoDictado, as:'GrupoTipoDictado'}    
+                    <div class="tab-pane" id="g${GrupoTipoDictado.cursoTipoDictado.tipoDictado.tid_vCodigo}">
+                        ${GrupoTipoDictado.cursoTipoDictado.tipoDictado.tid_vNombre}
+                        <div id="hgtd_${GrupoTipoDictado.cursoTipoDictado.tipoDictado.tid_vCodigo}">
+                            
+                        </div>
+                        <div id="mensaje_alerta_${GrupoTipoDictado.gtd_iId}"></div>
+                        <div class="control-group">
+                        <label class="control-label">Dia</label>
+                        <div class="controls">
+                            <select id="dia_${GrupoTipoDictado.gtd_iId}" class="span2">
+                                <option id="lunes"> lunes </option>
+                                <option id="martes"> martes</option>
+                                <option id="miercoles"> miercoles </option>
+                                <option id="jueves"> jueves </option>
+                                <option id="viernes"> viernes </option>
+                                <option id="sabado"> sabado </option>
+                            </select>
+                        </div>
+                        </div>
+                        <div>
+                            <label class="control-label" >Hora de inicio</label>
+                            <div class="controls" >
+                                <select id="hora_${GrupoTipoDictado.gtd_iId}" class="span2">
+                                    <option value="8"   > 8:00 </option>
+                                    <option value="9"> 9:00</option>
+                                    <option value="10"> 10:00</option>
+                                    <option value="11"> 11:00</option>
+                                    <option value="12"> 12:00</option>
+                                    <option value="13"> 1:00</option>
+                                    <option value="14"> 2:00</option>
+                                    <option value="15"> 3:00</option>
+                                    <option value="16"> 4:00</option>
+                                    <option value="17"> 5:00</option>
+                                    <option value="18"> 6:00</option>
+                                    <option value="19"> 7:00 </option>
+                                    <option value="20"> 8:00</option>
+                                    <option value="21"> 9:00</option>
+                                    <option value="22"> 10:00</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-primary" onclick="crearHorario('${GrupoTipoDictado.gtd_iId}','dia_${GrupoTipoDictado.gtd_iId}','hora_${GrupoTipoDictado.gtd_iId}')" >Modificar</button>
+                        </div>
+                    </div>
+                #{/list}
+                </div>
+                <script type="text/javascript">
+                    $('#myTab a').click(function (e) {
+                          e.preventDefault();
+                          $(this).tab('show');
+                    })
+                </script>

@@ -1,0 +1,49 @@
+#{extends 'main.html' /}
+#{set title:'Horarios' /}
+#{set 'moreStyles' }
+	<link rel="stylesheet" type="text/css" href="@{'/public/tools/Timetable/timetable.packed.css'}" />
+#{/set}
+#{set 'moreScripts' }
+	<script type="text/javascript" src="@{'/public/tools/Timetable/timetable.packed.js'}"></script>
+	<script type="text/javascript">
+		var datos_cur;
+		var datos_grup;
+		function llenar_horario(actividades,tabla){
+			var Dia = new Timetable(tabla);
+			for (var i = actividades.length - 1; i >= 0; i--) {
+				Dia.addEvent(actividades[i][0], actividades[i][1], actividades[i][2]);
+			}
+		}
+		
+	</script>
+#{/set}
+#{menu /}
+<div class="span12" id="content_main">
+	<form> 
+		Grupos:
+		<select>
+			<option>Ciclo 3 - Grupo I</option>
+		</select>
+		<button class="btn btn-primary" type="submit" >Consultar</button>
+	</form>
+	LUNES
+	<div id="tabla_lunes"></div>
+	MARTES
+	<div id="tabla_martes"></div>
+	MIERCOLES
+	<div id="tabla_miercoles"></div>
+	JUEVES
+	<div id="tabla_jueves"></div>
+	VIERNES
+	<div id="tabla_viernes"></div>
+	SABADO
+	<div id="tabla_sabado"></div>
+	<script type="text/javascript">
+		llenar_horario([['mate basica - teoria ',8,2],['Fisica - teoria ',13,2],['Lenguajes y copiladores ',16,2],['Calculo -teoria ',10,2]],'tabla_lunes');
+		llenar_horario([['mate basica II - teoria ',10,2],['Fisica II - teoria ',15,3]],'tabla_martes')
+		llenar_horario([['calculo II- teoria ',10,2],['TGS - teoria ',14,3]],'tabla_miercoles')
+		llenar_horario([['programacion I-teoria / teoria ',11,2],['programacion I-practica / teoria ',15,3]],'tabla_jueves')
+		llenar_horario([['mate basica II - teoria ',10,2],['Fisica II - teoria ',15,3]],'tabla_viernes')
+		llenar_horario([['mate basica II - teoria ',10,2],['Fisica II - teoria ',15,3]],'tabla_sabado')
+	</script>
+</div>

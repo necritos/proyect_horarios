@@ -1,0 +1,6 @@
+				<select class="span2" onchange="traerInfoDibujo()" id="vista_grupo">
+                    <option>Elegir grupo</option>
+                    #{list grupos, as:'Grupo'}
+                        <option value="${Grupo}">Grupo ${Grupo}</option>
+                    #{/list}
+                </select>

@@ -1,0 +1,51 @@
+<div class="modal hide fade" id="aperturar_curso" style="width: 40%; left: 30%; margin-left: 0px; display: none; "/>
+    <fieldset >
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">x</a>
+            <h3>Aperturar curso</h3>
+        </div>
+        <div class="form-horizontal">
+            <div class="modal-body">
+                <div class="control-group">
+                    
+                    <div class="controls">
+                        <label class="control-label" for="input01"> Ciclo </label>
+                        <select name="ciclo" onchange="traerCursosNoAbiertos('data_curso_no_abierto','ciclo_val_cna')" id='ciclo_val_cna' class="span4">
+                            <option id="0"> Seleccionar Ciclo</option>
+                            <option id="I"> I  </option>
+                            <option id="II"> II </option>
+                            <option id="III"> III </option>
+                            <option id="IV"> IV </option>
+                            <option id="V"> V </option>
+                            <option id="VI"> VI </option>
+                            <option id="VII"> VII </option>
+                            <option id="VIII"> VII </option>
+                            <option id="IX"> IX</option>
+                            <option id="X"> X </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group" id='data_curso_no_abierto'>
+                   
+                    <div class="controls">
+                         <label class="control-label" for="input01"> Cursos no abiertos:</label>
+                        <select  name="curso_g" id='curso_val_cna' class="span4">
+                            <option value="000"> Seleccionar Curso</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group" id="num_alum">
+                    <div class="controls">
+                         <label class="control-label" for="input02">Numero de alumnos:</label>
+                         <input type="number" id="num_alumnos" placeholder="solo valores enteros"/>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="aperturarCurso()" >Aperturar</button>
+            </div>
+        </div>
+    </fieldset>            
+</div>
+
+

@@ -1,0 +1,9 @@
+                    <div class="controls">
+                    	<label class="control-label" for="input01"> Curso </label>
+                        <select id='semestre_curso_grupo_crear'  onchange="traerNumeroAlumnos('semestre_curso_grupo_crear','numero_alumn');" name="curso"  class="span4">
+                        	<option value="000"> Seleccionar Curso</option>
+                            #{list listaSemestreCurso, as:'SemestreCurso'}
+                                <option value="${SemestreCurso.scu_iId}"> ${SemestreCurso.curso.cur_vNombre}</option>
+                            #{/list}
+                        </select>
+                    </div>

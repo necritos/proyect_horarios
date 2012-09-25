@@ -1,0 +1,63 @@
+<div class="modal hide fade" id="crear_horario" style="width: 75%; left: 15%; margin-left: 0px; display: none; "/>
+    <div class="span12">
+        <div class="modal-header">
+                <a class="close" data-dismiss="modal">x</a>
+                <h3>Crear horario</h3>
+        </div>
+        <div id="mensaje_creacion"></div>
+        <div class="span4">
+            <div class="form-horizontal">
+                <div class="control-group">
+                    
+                    <div class="controls">
+                        <label class="control-label" for="input01"> Ciclo </label>
+                        <select name="ciclo" onchange="traerCiclosHorario('data_curso_h','curso_val_h','ciclo_val_h')" id='ciclo_val_h' class="span4">
+                            <option id="0"> Seleccionar Ciclo  </option>
+                            <option id="I"> I  </option>
+                            <option id="II"> II </option>
+                            <option id="III"> III </option>
+                            <option id="IV"> IV </option>
+                            <option id="V"> V </option>
+                            <option id="VI"> VI </option>
+                            <option id="VII"> VII </option>
+                            <option id="VIII"> VII </option>
+                            <option id="IX"> IX</option>
+                            <option id="X"> X </option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="control-group" id='data_curso_h'>
+                    
+                    <div class="controls">
+                        <label class="control-label" for="input01"> Curso </label>
+                        <select onchange="traerGrupos('data_grupo','curso_val_h');" name="curso" id='curso_val_h' class="span4">
+                            <option value="000"> Seleccionar Curso</option>
+                        #{list listaSemestreCurso, as:'SemestreCurso'}
+                            <option value="${SemestreCurso.curso.cur_iId}"> ${SemestreCurso.curso.cur_vNombre}</option>
+                        #{/list}
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group" id='data_grupo'>
+                    
+                    <div class="controls">
+                        <label class="control-label" for="input01">Grupo </label>
+                        <select class="span4">
+                            <option value="000" > Seleccionar Grupo</option>
+                        #{list listaGrupo, as:'Grupo'}
+                            <option value="${Grupo.gru_iId}"> G ${Grupo.gru_iNumGrupo}</option>
+                        #{/list}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="span5">
+            <div id="mensaje_info_grupo_creado"></div>
+                <div  class="" id='info_grupo' style="margin-left:50px;">
+                </div>
+        </div>
+    </div>
+</div>

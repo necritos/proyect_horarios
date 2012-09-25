@@ -1,0 +1,56 @@
+<div class="modal hide fade" id="crear_grupo" style="width: 40%; left: 30%; margin-left: 0px; display: none; "/>
+    <fieldset >
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">x</a>
+            <h3>Crear grupo</h3>
+        </div>
+        <div class="form-horizontal">
+            <div class="modal-body">
+                <div class="control-group">
+                    
+                    <div class="controls">
+                        <label class="control-label" for="input01"> Ciclo </label>
+                        <select name="ciclo" onchange="traerCiclos('data_curso_g','curso_val_grupo','ciclo_val')" id='ciclo_val' class="span4">
+                            <option id="0"> Seleccionar Ciclo</option>
+                            <option id="I"> I  </option>
+                            <option id="II"> II </option>
+                            <option id="III"> III </option>
+                            <option id="IV"> IV </option>
+                            <option id="V"> V </option>
+                            <option id="VI"> VI </option>
+                            <option id="VII"> VII </option>
+                            <option id="VIII"> VII </option>
+                            <option id="IX"> IX</option>
+                            <option id="X"> X </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group" id='data_curso_g'>
+                   
+                    <div class="controls">
+                         <label class="control-label" for="input01"> Curso </label>
+                        <select  name="curso_g" id='curso_val_grupo' class="span4">
+                            <option value="000"> Seleccionar Curso</option>
+                        #{list listaSemestreCurso, as:'SemestreCurso'}
+                            <option value="${SemestreCurso.scu_iId}"> ${SemestreCurso.curso.cur_vNombre}</option>
+                        #{/list}
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group" id='numero_alumn'>
+                    
+                </div>
+                <div class="control-group" id='data_num_alum'>
+                    
+                    <div class="controls">
+                        <label class="control-label" for="input01"> Numero de Alumnos Maximo:</label>
+                        <input type="number" class="span4" id="gru_max_alum">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="crearGrupo()" >Crear</button>
+            </div>
+        </div>
+    </fieldset>            
+</div>

@@ -1,0 +1,11 @@
+					
+                    <div class="controls">
+                    	<label class="control-label" for="input01">Grupo </label>
+                        <select class="span4" onchange='traerInfoGrupo()' id='val_grupo'>
+                        	<option value="000"> Seleccionar Grupo</option>
+                            #{list listaGrupo, as:'Grupo'}
+                            <option value="${Grupo.gru_iId}"> G ${Grupo.gru_iNumGrupo}</option>
+                            #{/list}
+                        </select>
+                    </div>
+                    

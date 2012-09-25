@@ -1,0 +1,69 @@
+#{extends 'main.html' /}
+#{set title:'Horarios' /}
+#{set 'moreScripts' }
+#{/set}
+#{menu /}
+#{crearGrupoTag /}
+#{crearHorarioTag /}
+#{aperturarCurso /}
+#{eliminarCurso /}
+<div class="span12">
+    <div id="mensaje"></div>
+    <p>
+        <script type="text/javascript">
+            esconder();
+        </script>
+    </p>
+</div>
+<div class="span12" id="content_main">
+        <div id="ciclo_horario" class="span3">
+            <select onchange="traerGrupoHorario()" class="" id="vista_ciclo">
+                <option value="00">Elegir ciclo</option>
+                #{list ciclos, as:'Ciclo'}
+                    <option  value="${Ciclo}">Ciclo ${Ciclo}</option>
+                #{/list}
+            </select>
+        </div>
+        <div id="grupo_horario" class="span3">
+            <select class="" id="vista_grupo">
+                <option>Elegir grupo</option>
+                #{list grupos, as:'Grupo'}
+                    <option value="${Grupo}">Grupo ${Grupo}</option>
+                #{/list}
+            </select>
+        </div>
+        <table class='table table-bordered' >
+                <thead>
+                    <tr id="cab">
+                        <td>hora</td>
+                        <td> lunes </td>
+                        <td> martes </td>
+                        <td> miercoles</td>
+                        <td> jueves</td>
+                        <td> viernes </td>
+                        <td> sabado </td>
+                    </tr>
+                </thead>
+                <tbody id="tabla_horario">
+                </tbody>
+         </table>
+         <div id="horario_data_dibujo">
+                <script type="text/javascript">
+                    limpiarTabla();
+                    //agrega columna horas
+                    agregarHora();
+                    //lunes
+                    agregarHorariosDia([]);
+                    //martes
+                    agregarHorariosDia([]);
+                    //miercoles
+                    agregarHorariosDia([]);
+                    //jueves
+                    agregarHorariosDia([]);
+                    //viernes
+                    agregarHorariosDia([]);
+                    //sabado
+                    agregarHorariosDia([]);
+                </script>
+         </div>	
+</div>
