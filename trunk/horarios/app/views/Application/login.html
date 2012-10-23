@@ -10,35 +10,72 @@
 </head>
 <body>
 <div class="container">
-    <div class="row">
-        <div class="span8">
-        </div>
-        <div class="span4">
-        #{form @login()}
-            <div class="well">
-                <input type="text" name="name" class="span3" placeholder="Name" style="height : 32px">
-                </br>
-                <input type="password" name="pass" class="span3" placeholder="Password" style="height : 32px">
-                <label class="checkbox">
-                    <input type="checkbox"> Remember me
-                </label>
-                <button type="submit" class="btn btn-primary">Sign in</button>
-            </div>
-        #{/form}
-        </div>
+        <div class="well" style="margin: 0 auto 0 auto;
+width: 430px;">
+        <form class="form-horizontal" action="loginpost" method="post">
+            <fieldset>
+    <div id="legend">
+      <legend class="">Login</legend>
+    </div>
+
+    <ul class="error" style="margin-bottom: 30px; list-style: none;">
+#{ifErrors}
+    #{list items:errors, as:'error'}
+    <li class="error">
+        ${error}
+    </li>
+#{/list}
+#{/ifErrors}
+#{if error == "login"}
+    <li class="error">
+        Usuario o contraseña erróneo
+    </li> 
+    #{/if}  
+</ul>
+
+    <div class="control-group">
+      <!-- Username -->
+      <label class="control-label"  for="username">Usuario</label>
+      <div class="controls">
+        <input type="text" id="username" name="name" class="input-large" style="height: 26px;" placeholder="usuario" required>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Password-->
+      <label class="control-label" for="password">Contraseña</label>
+      <div class="controls">
+        <input type="password" id="password" name="pass" placeholder="**********" class="input-large" style="height: 26px;" required>
+      </div>
+    </div>
+
+     <div class="control-group">
+      <!-- Captcha-->
+      <label class="control-label" for="password">Ingrese el siguiente código</label>
+<img src="@{Application.captcha(randomID)}" />
+      <div class="controls">
+        <input type="text" class="input-large" style="height: 26px;" name="code" id="code" size="18" value="" placeholder="Ingrese el código aquí" required/>
+    <input type="hidden" name="randomID" value="${randomID}" />
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <!-- Username -->
+      <label class="control-label"  for="username">Recordar contraseña</label>
+      <div class="controls">
+        <input type="checkbox" name="recordar">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button class="btn btn-success">Entrar</button>
+      </div>
+    </div>
+  </fieldset>
+        </form>
     </div>
 </div>
-<script type="text/javascript">
-    (function(){
-        var box = $('div.container'),
-                w = $(window).width() / 2 - box.outerWidth()/2;
-        h= $(window).height() / 2 - box.outerHeight()/2;
-        box.css({
-            'top':h,
-            'position':'absolute',
-            'left':w
-        });
-    })();
-</script>
 </body>
 </html>

@@ -6,34 +6,52 @@ import java.util.*;
 
 import models.*;
 
+import play.libs.*;
+import play.cache.*;
+import play.data.validation.*;
+
 public class Application extends Controller {
 
     public static boolean log = false;
 
-    public static void login(String name, String pass) {
-        User user = null;
-        if (name == null || pass == null) {
-            name = "";
-            pass = "";
+    public static void login() {
+	if(!log){
+            String randomID = Codec.UUID();
+            render(randomID);
         } else {
-            user = User.find("byUse_usernameAndUse_password", name, pass).first();
-
+            crearHorario();
         }
+    }
+    
+    public static void logout() {
+	log = false;
+        login();
+    }
+    
+    public static void loginpost(@Required(message="Usuario es requerido") String name,
+                             @Required(message="Contraseña es requerida") String pass,
+                            @Required(message="Por favor ingrese el código") String code,
+                            String randomID){
+	User user = User.find("byUse_usernameAndUse_password", name, pass).first();
         if (user != null) {
             log = true;
-            //index();
-            crearHorario();
+            validation.equals(code, Cache.get(randomID)).message("Código Inválido");
+            if(validation.hasErrors()) {
+                render("Application/login.html",randomID);
+            } else {
+                crearHorario();
+            }
         } else {
-            render();
+            String error = "login";
+            render("Application/login.html",randomID,error);
         }
     }
 
     public static void index() {
         if (!log) {
-            login("", "");
+            login();
         } else {
-            render();
-
+            crearHorario();
         }
     }
 
@@ -422,5 +440,14 @@ public class Application extends Controller {
         System.out.println(plan);
         render(plan);
         //render();
+    }
+    
+    public static void captcha(String id){
+        Images.Captcha captcha = Images.captcha();
+        String code = captcha.getText();
+        Cache.set(id, code, "10mn");
+System.out.println("codigo: "+code);
+System.out.println("acaba de guardarse: "+Cache.get(id));
+        renderBinary(captcha);
     }
 }

@@ -3,15 +3,10 @@ body{
 }
 
 /*boot strap*/
-.form-horizontal .control-group > label {
-  float:left;
-  padding-top:5px;
-  text-align:right;
-}
-.form-horizontal .controls {
-  float:left;
-  margin-left:10px;
-}
 .subnav .nav-pills{
 	background-color:  #EEE;
+}
+
+.error {
+color:red;
 }

@@ -4,6 +4,8 @@
 
 # Home page
 GET     /login                                       Application.login
+GET     /logout                                       Application.logout
+POST	/loginpost				     Application.loginpost
 GET     /                                            Application.index
 
 # Ignore favicon requests
@@ -17,3 +19,6 @@ GET     /public/                                staticDir:public
 
 # crearGrupo
 POST /                                          Application.crearGrupo
+
+#captcha
+GET /						Application.captcha
