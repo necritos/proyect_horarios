@@ -6,13 +6,14 @@
         </div>
         <div class="form-horizontal">
             <div class="modal-body">
+                <div id="alert_crear_grupo"></div>
                 <div class="control-group">
                 <div style="color : red;">* Informaci&oacute;n Requerida</div>
                 <br/>
                     
                     <div class="controls">
                         <label class="control-label" for="input01"><span style="color:red;">*</span> Ciclo </label>
-                        <select name="ciclo" onchange="traerCiclos('data_curso_g','curso_val_grupo','ciclo_val')" id='ciclo_val' class="span4">
+                        <select name="ciclo" onchange="traerCiclos('data_curso_g','semestre_curso_grupo_crear','ciclo_val')" id='ciclo_val' class="span4">
                             <option id="0"> Seleccionar Ciclo</option>
                             <option id="I"> I  </option>
                             <option id="II"> II </option>
@@ -21,7 +22,7 @@
                             <option id="V"> V </option>
                             <option id="VI"> VI </option>
                             <option id="VII"> VII </option>
-                            <option id="VIII"> VII </option>
+                            <option id="VIII"> VIII </option>
                             <option id="IX"> IX</option>
                             <option id="X"> X </option>
                         </select>
@@ -31,7 +32,7 @@
                    
                     <div class="controls">
                         <label class="control-label" for="input01"><span style="color:red;">*</span> Curso </label>
-                        <select  name="curso_g" id='curso_val_grupo' class="span4">
+                        <select  name="curso_g" id='semestre_curso_grupo_crear' class="span4">
                             <option value="000"> Seleccionar Curso</option>
                         #{list listaSemestreCurso, as:'SemestreCurso'}
                             <option value="${SemestreCurso.scu_iId}"> ${SemestreCurso.curso.cur_vNombre}</option>

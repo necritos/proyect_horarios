@@ -8,13 +8,14 @@
         <div class="form-horizontal">
             <div class="modal-body">
                 <div style="color : #666;">Utilizar este formulario para crear un nuevo curso dentro del semestre actual</div>
+                <div id="alert_aperturar_curso"></div>
                 <div class="control-group">
                     <div style="color : red;">* Informaci&oacute;n Requerida</div>
                         <br/>
                     <div class="controls">  
                         <label class="control-label" for="input01"><span style="color:red;">*</span> Ciclo </label>
-                        <select name="ciclo" onchange="traerCursosNoAbiertos('data_curso_no_abierto','ciclo_val_cna')" id='ciclo_val_cna' class="span4">
-                            <option id="0"> Seleccionar Ciclo</option>
+                        <select name="ciclo"  onchange="traerCursosNoAbiertos('data_curso_no_abierto','ciclo_val_cna')" id='ciclo_val_cna' class="span4" requiered>
+                            <option id="0" value="0"> Seleccionar Ciclo</option>
                             <option id="I"> I  </option>
                             <option id="II"> II </option>
                             <option id="III"> III </option>
@@ -37,9 +38,9 @@
                         </select>
                     </div>
                 </div>
-                <div class="control-group" id="num_alum">
+                <div class="control-group" id="num_alum" requiered>
                     <div class="controls">
-                         <label class="control-label" for="input02"><span style="color:red;">*</span> Numero de alumnos:</label>
+                         <label class="control-label" for="input02"><span style="color:red;"></span> Numero de alumnos:</label>
                          <input type="number" id="num_alumnos" placeholder="solo valores enteros"/>
                     </div>
                 </div>
