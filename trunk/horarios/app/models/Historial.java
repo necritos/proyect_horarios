@@ -14,7 +14,7 @@ public class Historial extends GenericModel {
     public Integer his_iId;
 
     @Column(name = "his_sdescripcion")
-    public Spring his_sdescripcion;
+    public String his_sdescripcion;
 
     @Column(name = "his_iIdHorario")
     public Integer his_iIdHorario;
