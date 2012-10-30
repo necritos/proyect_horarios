@@ -17,6 +17,20 @@
             $("#"+id).html("<div class='alert alert-error'> <button class='close' data-dismiss='alert'>×</button>  <strong>Error</strong><p>"+msg+"</p></div>");
             return;
         }
+        //historial
+        function traerHistorial(){
+            //alert("mostrar");
+
+            $.ajax({
+                type:'GET',
+                url:'@{Application.verHistorial()}',
+                data:{},
+                success:function(data){
+                    //alert("mostrar");
+                    $('#historial').html(data);
+                }
+            })
+        }
         function esconder(){
             $('#crearg').hide();
             $('#eliminarg').hide();
@@ -207,7 +221,8 @@
                    $('#historias').html(data);
                     console.log(data);
                 }
-            });    
+            }); 
+            traerHistorial();   
         }
         //*** apertura de curso **/k
         function traerCursosNoAbiertos(id_carga,data_ciclo){
@@ -346,5 +361,8 @@
         #{bar/}
         #{doLayout /}
         </div>
+        <script type="text/javascript">
+            traerHistorial();
+        </script>
     </body>
 </html>

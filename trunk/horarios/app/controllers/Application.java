@@ -153,13 +153,16 @@ public class Application extends Controller {
         hj = hj + "]";
         hv = hv + "]";
         hs = hs + "]";
-        List<Historial> historiales = Historial.findAll();
-
-        System.out.println(historiales.size());
-        render(hl, hm, hmi, hj, hv, hs,historiales);
+        
+        render(hl, hm, hmi, hj, hv, hs);
         //render(horarioLunes,horarioMartes,horarioMiercoles,horarioJueves,horarioViernes,horarioSabado);
     }
+    public static void verHistorial(){
+        List<Historial> historiales = Historial.findAll();
+        System.out.println("numero de historias: "+historiales.size());
+        render(historiales);
 
+    }
     public static void verHorario() {
         render();
     }
