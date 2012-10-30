@@ -3,7 +3,7 @@
 -- Server version:               5.5.24 - MySQL Community Server (GPL)
 -- Server OS:                    Win32
 -- HeidiSQL version:             7.0.0.4053
--- Date/time:                    2012-10-30 15:50:51
+-- Date/time:                    2012-10-30 16:57:26
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -156,6 +156,71 @@ INSERT INTO `grupo_tipo_dictado` (`gtd_iId`, `gtd_bAprobado`, `ctd_iId`, `gru_iI
 	(53, b'00000000', 12, 35),
 	(54, b'00000000', 13, 35);
 /*!40000 ALTER TABLE `grupo_tipo_dictado` ENABLE KEYS */;
+
+
+-- Dumping structure for table horarios.historial
+DROP TABLE IF EXISTS `historial`;
+CREATE TABLE IF NOT EXISTS `historial` (
+  `his_iId` int(11) NOT NULL AUTO_INCREMENT,
+  `his_sdescripcion` varchar(255) DEFAULT NULL,
+  `his_iIdciclo` varchar(255) DEFAULT NULL,
+  `his_iIdgrupo` int(11) DEFAULT NULL,
+  PRIMARY KEY (`his_iId`)
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table horarios.historial: ~48 rows (approximately)
+DELETE FROM `historial`;
+/*!40000 ALTER TABLE `historial` DISABLE KEYS */;
+INSERT INTO `historial` (`his_iId`, `his_sdescripcion`, `his_iIdciclo`, `his_iIdgrupo`) VALUES
+	(1, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(2, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(3, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(4, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(5, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(6, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(7, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(8, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(9, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(10, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(11, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(12, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(13, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(14, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(15, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(16, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(17, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(18, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(19, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(20, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(21, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(22, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(23, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(24, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(25, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(26, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(27, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(28, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(29, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(30, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(31, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(32, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(33, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(34, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(35, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(36, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(37, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(38, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(39, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(40, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(41, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(42, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(43, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(44, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(45, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(46, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(47, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1),
+	(48, 'Se ha seleccionado el horario ciclo : I grupo : 1', 'I', 1);
+/*!40000 ALTER TABLE `historial` ENABLE KEYS */;
 
 
 -- Dumping structure for table horarios.horario

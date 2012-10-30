@@ -21,5 +21,11 @@ public class Historial extends GenericModel {
 
     @Column(name = "his_iIdgrupo")
     public Integer his_iIdgrupo;
+
+    public Historial(String his_sdescripcion, String his_iIdciclo, Integer his_iIdgrupo) {
+        this.his_sdescripcion = his_sdescripcion;
+        this.his_iIdciclo = his_iIdciclo;
+        this.his_iIdgrupo = his_iIdgrupo;
+    }
 }
 

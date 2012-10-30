@@ -1,7 +1,5 @@
 package controllers;
 
-import org.apache.commons.beanutils.converters.IntegerArrayConverter;
-import org.apache.commons.beanutils.converters.StringArrayConverter;
 import play.mvc.*;
 
 import java.util.*;
@@ -11,6 +9,8 @@ import models.*;
 import play.libs.*;
 import play.cache.*;
 import play.data.validation.*;
+
+import javax.transaction.SystemException;
 
 public class Application extends Controller {
 
@@ -142,6 +142,9 @@ public class Application extends Controller {
                             + h.grupoTipoDictado.cursoTipoDictado.tipoDictado.tid_vNombre + "',"
                             + h.hor_tIni + "," + h.hor_tFin + ",'#BBD188'],";
                 }
+                Historial historial = new Historial("Se ha seleccionado el horario ciclo : " +
+                        ciclo+" grupo : "+grupo,ciclo,grupo);
+                historial.save();
             }
         }
         hl = hl + "]";
@@ -150,8 +153,10 @@ public class Application extends Controller {
         hj = hj + "]";
         hv = hv + "]";
         hs = hs + "]";
-        //System.out.println(hl);
-        render(hl, hm, hmi, hj, hv, hs);
+        List<Historial> historiales = Historial.findAll();
+
+        System.out.println(historiales.size());
+        render(hl, hm, hmi, hj, hv, hs,historiales);
         //render(horarioLunes,horarioMartes,horarioMiercoles,horarioJueves,horarioViernes,horarioSabado);
     }
 
