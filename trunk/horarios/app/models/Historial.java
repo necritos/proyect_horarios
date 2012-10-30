@@ -16,7 +16,10 @@ public class Historial extends GenericModel {
     @Column(name = "his_sdescripcion")
     public String his_sdescripcion;
 
-    @Column(name = "his_iIdHorario")
-    public Integer his_iIdHorario;
+    @Column(name = "his_iIdciclo")
+    public String his_iIdciclo;
+
+    @Column(name = "his_iIdgrupo")
+    public Integer his_iIdgrupo;
 }
 

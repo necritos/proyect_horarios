@@ -1,5 +1,7 @@
 package controllers;
 
+import org.apache.commons.beanutils.converters.IntegerArrayConverter;
+import org.apache.commons.beanutils.converters.StringArrayConverter;
 import play.mvc.*;
 
 import java.util.*;
@@ -13,6 +15,8 @@ import play.data.validation.*;
 public class Application extends Controller {
 
     public static boolean log = false;
+    public static String cicloA;
+    public static Integer grupoA;
 
     public static void login() {
 	if(!log){
@@ -94,6 +98,8 @@ public class Application extends Controller {
     }
 
     public static void renderGrupoHorario(String ciclo, Integer grupo) {
+        cicloA = ciclo;
+        grupoA = grupo;
         System.out.println("llega:" + ciclo + " " + grupo);
         List<Horario> horarios = Horario.find("order by hor_tIni asc").fetch();
 
