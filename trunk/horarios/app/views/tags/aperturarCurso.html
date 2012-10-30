@@ -1,3 +1,4 @@
+
 <div class="modal hide fade" id="aperturar_curso" style="width: 40%; left: 30%; margin-left: 0px; display: none; "/>
     <fieldset >
         <div class="modal-header">
@@ -6,10 +7,12 @@
         </div>
         <div class="form-horizontal">
             <div class="modal-body">
+                <div style="color : #666;">Utilizar este formulario para crear un nuevo curso dentro del semestre actual</div>
                 <div class="control-group">
-                    
-                    <div class="controls">
-                        <label class="control-label" for="input01"> Ciclo </label>
+                    <div style="color : red;">* Informaci&oacute;n Requerida</div>
+                        <br/>
+                    <div class="controls">  
+                        <label class="control-label" for="input01"><span style="color:red;">*</span> Ciclo </label>
                         <select name="ciclo" onchange="traerCursosNoAbiertos('data_curso_no_abierto','ciclo_val_cna')" id='ciclo_val_cna' class="span4">
                             <option id="0"> Seleccionar Ciclo</option>
                             <option id="I"> I  </option>
@@ -28,7 +31,7 @@
                 <div class="control-group" id='data_curso_no_abierto'>
                    
                     <div class="controls">
-                         <label class="control-label" for="input01"> Cursos no abiertos:</label>
+                         <label class="control-label" for="input01"><span style="color:red;">*</span> Cursos no abiertos:</label>
                         <select  name="curso_g" id='curso_val_cna' class="span4">
                             <option value="000"> Seleccionar Curso</option>
                         </select>
@@ -36,7 +39,7 @@
                 </div>
                 <div class="control-group" id="num_alum">
                     <div class="controls">
-                         <label class="control-label" for="input02">Numero de alumnos:</label>
+                         <label class="control-label" for="input02"><span style="color:red;">*</span> Numero de alumnos:</label>
                          <input type="number" id="num_alumnos" placeholder="solo valores enteros"/>
                     </div>
                 </div>

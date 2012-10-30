@@ -7,9 +7,10 @@
         <div class="form-horizontal">
             <div class="modal-body">
                 <div class="control-group">
-                    
+                    <div style="color : red;">* Informaci&oacute;n Requerida</div>
+                    <br/>
                     <div class="controls">
-                        <label class="control-label" for="input01"> Ciclo </label>
+                        <label class="control-label" for="input01"><span style="color:red;">*</span> Ciclo </label>
                         <select name="ciclo" onchange="traerCiclosHorario('data_curso_eliminar','curso_val_eliminar','ciclo_val_eliminar')" id='ciclo_val_eliminar' class="span4">
                             <option id="0"> Seleccionar Ciclo</option>
                             <option id="I"> I  </option>
@@ -27,7 +28,7 @@
                 </div>
                 <div class="control-group" id='data_curso_eliminar'>                   
                     <div class="controls">
-                         <label class="control-label" for="input01"> Curso </label>
+                         <label class="control-label" for="input01"><span style="color:red;">*</span> Curso </label>
                         <select  name="curso_g" id='curso_val_eliminar' class="span4">
                             <option value="000"> Seleccionar Curso</option>
                         #{list listaSemestreCurso, as:'SemestreCurso'}

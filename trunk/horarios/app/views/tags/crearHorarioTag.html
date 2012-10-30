@@ -8,9 +8,10 @@
         <div class="span4">
             <div class="form-horizontal">
                 <div class="control-group">
-                    
+                    <div style="color : red;">* Informaci&oacute;n Requerida</div>
+                    <br/>
                     <div class="controls">
-                        <label class="control-label" for="input01"> Ciclo </label>
+                        <label class="control-label" for="input01"><span style="color:red;">*</span> Ciclo </label>
                         <select name="ciclo" onchange="traerCiclosHorario('data_curso_h','curso_val_h','ciclo_val_h')" id='ciclo_val_h' class="span4">
                             <option id="0"> Seleccionar Ciclo  </option>
                             <option id="I"> I  </option>
@@ -30,7 +31,7 @@
                 <div class="control-group" id='data_curso_h'>
                     
                     <div class="controls">
-                        <label class="control-label" for="input01"> Curso </label>
+                        <label class="control-label" for="input01"><span style="color:red;">*</span> Curso </label>
                         <select onchange="traerGrupos('data_grupo','curso_val_h');" name="curso" id='curso_val_h' class="span4">
                             <option value="000"> Seleccionar Curso</option>
                         #{list listaSemestreCurso, as:'SemestreCurso'}
@@ -42,7 +43,7 @@
                 <div class="control-group" id='data_grupo'>
                     
                     <div class="controls">
-                        <label class="control-label" for="input01">Grupo </label>
+                        <label class="control-label" for="input01"><span style="color:red;">*</span> Grupo </label>
                         <select class="span4">
                             <option value="000" > Seleccionar Grupo</option>
                         #{list listaGrupo, as:'Grupo'}

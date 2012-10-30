@@ -1,6 +1,6 @@
 					
                     <div class="controls">
-                    	<label class="control-label" for="input01"> Curso </label>
+                    	<label class="control-label" for="input01"><span style="color:red;">*</span> Curso </label>
                         <select onchange="traerGrupos('data_grupo','${idSS}');" name="curso" id='${idSS}' class="span4">
                         	<option value="000"> Seleccionar Curso</option>
                             #{list listaSemestreCurso, as:'SemestreCurso'}
