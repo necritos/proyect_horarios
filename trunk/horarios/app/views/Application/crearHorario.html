@@ -20,12 +20,14 @@
 <div class="row" style="margin-left: 0px;">
     <div class="span3" style="margin-left: 0px;background-color: #BEBEC5;
     border-radius :3px;">
-        <div style="margin: 10px;">
+        <div style="margin: 10px;" id="historias">
             <legend>Historial</legend>
             <p>Se ha creado el grupo 1 para el ciclo1</p>
             <p>Se ha aniadido un Calculo I</p>
-            <p>Se ha creado un nuevo horario para el
-                grupo 2 del ciclo 3</p>
+            <p>Se ha creado un nuevo horario para el grupo 2 del ciclo 3</p>
+            #{list historial, as:'historiales'}
+                <p>${historial.descripcion}</p>
+            #{/list}
         </div>
     </div>
     <div class="span9" id="content_main" style="margin-left: 0px;">
