@@ -7,20 +7,33 @@
 #{crearHorarioTag /}
 #{aperturarCurso /}
 #{eliminarCurso /}
-<div class="span12">
-    <div id="mensaje"></div>
-    <p>
-        <script type="text/javascript">
-            esconder();
-        </script>
-    </p>
+<div class="row">
+    <div class="span12">
+        <div id="mensaje"></div>
+        <p>
+            <script type="text/javascript">
+                esconder();
+            </script>
+        </p>
+    </div>
 </div>
-<div class="span12" id="content_main">
+<div class="row" style="margin-left: 0px;">
+    <div class="span3" style="margin-left: 0px;background-color: #BEBEC5;
+    border-radius :3px;">
+        <div style="margin: 10px;">
+            <legend>Historial</legend>
+            <p>Se ha creado el grupo 1 para el ciclo1</p>
+            <p>Se ha aniadido un Calculo I</p>
+            <p>Se ha creado un nuevo horario para el
+                grupo 2 del ciclo 3</p>
+        </div>
+    </div>
+    <div class="span9" id="content_main" style="margin-left: 0px;">
         <div id="ciclo_horario" class="span3">
             <select onchange="traerGrupoHorario()" class="" id="vista_ciclo">
                 <option value="00">Elegir ciclo</option>
                 #{list ciclos, as:'Ciclo'}
-                    <option  value="${Ciclo}">Ciclo ${Ciclo}</option>
+                <option  value="${Ciclo}">Ciclo ${Ciclo}</option>
                 #{/list}
             </select>
         </div>
@@ -28,26 +41,28 @@
             <select class="" id="vista_grupo">
                 <option>Elegir grupo</option>
                 #{list grupos, as:'Grupo'}
-                    <option value="${Grupo}">Grupo ${Grupo}</option>
+                <option value="${Grupo}">Grupo ${Grupo}</option>
                 #{/list}
             </select>
         </div>
-        <table class='table table-bordered' >
+        <div class="span9">
+            <table class='table table-bordered' >
                 <thead>
-                    <tr id="cab">
-                        <td>hora</td>
-                        <td> lunes </td>
-                        <td> martes </td>
-                        <td> miercoles</td>
-                        <td> jueves</td>
-                        <td> viernes </td>
-                        <td> sabado </td>
-                    </tr>
+                <tr id="cab">
+                    <td>hora</td>
+                    <td> lunes </td>
+                    <td> martes </td>
+                    <td> miercoles</td>
+                    <td> jueves</td>
+                    <td> viernes </td>
+                    <td> sabado </td>
+                </tr>
                 </thead>
                 <tbody id="tabla_horario">
                 </tbody>
-         </table>
-         <div id="horario_data_dibujo">
+            </table>
+
+            <div id="horario_data_dibujo">
                 <script type="text/javascript">
                     limpiarTabla();
                     //agrega columna horas
@@ -65,5 +80,7 @@
                     //sabado
                     agregarHorariosDia([]);
                 </script>
-         </div>	
+            </div>
+        </div>
+    </div>
 </div>
