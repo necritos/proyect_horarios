@@ -363,3 +363,4 @@ INSERT INTO `user` (`use_iId`, `use_password`, `use_username`) VALUES
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 /*!40014 SET FOREIGN_KEY_CHECKS=1 */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+historial

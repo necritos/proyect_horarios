@@ -98,6 +98,9 @@ public class Application extends Controller {
     }
 
     public static void renderGrupoHorario(String ciclo, Integer grupo) {
+        Historial historial = new Historial("Se ha seleccionado el horario ciclo : " +
+                        ciclo+" grupo : "+grupo,ciclo,grupo);
+                historial.save();
         cicloA = ciclo;
         grupoA = grupo;
         System.out.println("llega:" + ciclo + " " + grupo);
@@ -142,9 +145,7 @@ public class Application extends Controller {
                             + h.grupoTipoDictado.cursoTipoDictado.tipoDictado.tid_vNombre + "',"
                             + h.hor_tIni + "," + h.hor_tFin + ",'#BBD188'],";
                 }
-                Historial historial = new Historial("Se ha seleccionado el horario ciclo : " +
-                        ciclo+" grupo : "+grupo,ciclo,grupo);
-                historial.save();
+                
             }
         }
         hl = hl + "]";
@@ -158,7 +159,8 @@ public class Application extends Controller {
         //render(horarioLunes,horarioMartes,horarioMiercoles,horarioJueves,horarioViernes,horarioSabado);
     }
     public static void verHistorial(){
-        List<Historial> historiales = Historial.findAll();
+        List<Historial> historiales = Historial.find("order by his_iId desc").fetch(5);
+
         System.out.println("numero de historias: "+historiales.size());
         render(historiales);
 
@@ -179,9 +181,16 @@ public class Application extends Controller {
             h.hor_tFin = horaFin;
             h.hor_vDia = dia;
             h.save();
+            System.out.println( grupoTD.grupo.gru_iNumGrupo);
+            /*Historial historial = new Historial("Se asigno el horario al grupo: "+
+            " , para el curso:" +
+             grupoTD.cursoTipoDictado.curso.cur_vNombre );*/
         } else {
             Horario nuevo = new Horario(horaInicio, horaFin, dia, grupoTD);
             nuevo.save();
+          /* Historial historial = new Historial("Se asigno el horario al grupo: "+grupoTD.grupo.gru_iNumGrupo +
+            " , al curso:"+grupoTD.cursoTipoDictado.curso.cur_vNombre);
+           historial.save();*/
         }
         render();
     }
@@ -228,6 +237,7 @@ public class Application extends Controller {
                 gru_iMaxAlumnos,
                 semestreCurso);
         nuevoG.save();
+       // Historial historial = new Historial("Se creo el grupo "+grupoG.gru_iNumGrupo+" para rl curso"+nuevoG.semestreCurso.curso.cur_vNombre);
         semestreCurso.getGrupoList().add(nuevoG);
         System.out.println("total de CTD:" + nuevoG.semestreCurso.curso.cursoTipoDictadoList.size());
         for (int i = 0; i < nuevoG.semestreCurso.curso.cursoTipoDictadoList.size(); i++) {
@@ -235,6 +245,7 @@ public class Application extends Controller {
                     nuevoG,
                     nuevoG.semestreCurso.curso.cursoTipoDictadoList.get(i));
             nuevoGTD.save();
+
         }
         render();
     }

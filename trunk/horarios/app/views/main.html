@@ -29,6 +29,34 @@
             }
 
         }
+        //funcion alerta
+        function alerta_div(id,  msg){
+            $("#"+id).html("<div class='alert alert-error'> <button class='close' data-dismiss='alert'>×</button>  <strong>Error</strong><p>"+msg+"</p></div>");
+ 
+           return;
+        }
+        //historial
+ 
+        function traerHistorial(){
+     
+           $.ajax({
+ 
+                type:'GET',
+
+                url:'@{Application.verHistorial()}',
+
+                data:{},
+ 
+                success:function(data){
+ 
+                   //alert("mostrar");
+ 
+                    $('#historial').html(data);
+
+                } 
+            })
+
+       }
         function eliminarG(){
              if(eli){
                 $('#eliminarg').hide();
@@ -73,6 +101,7 @@
         }
         //traer listas ajax
         function traerCiclos(id_data,idSelect,idCiclo){
+            $("#numero_alumn").html("");
             $.ajax({
                 type:'GET',
                 url:'@{Application.crearGrupoCursos()}',
@@ -91,6 +120,7 @@
                     $('#'+id_data).html(data);
                 }
             });
+            $("#info_grupo").html('');
         }
         function traerNumeroAlumnos(id_semCur,id_data){
             $.ajax({
@@ -111,21 +141,34 @@
                     $('#'+id_data).html(data);
                 }
             });
+            $("#info_grupo").html('');
         }
         function crearGrupo(){
            // alert('gru_iMaxAlumnos:'+$('#gru_max_alum').val()+" "+'idSemestreCurso:'+$('#semestre_curso_grupo_crear').val());
-            $.ajax({
-                type:'POST',
-                url:'@{Application.crearGrupo()}',
-                data:{'gru_iMaxAlumnos':$('#gru_max_alum').val(),'idSemestreCurso':$('#semestre_curso_grupo_crear').val()},
-                success: function(data) {
-                    $('#crear_grupo').modal('hide');
-                    //$('#mensaje').html(data);
-                    $("#mensaje_nuevo").html("<p>grupo creado</p>");
-                    $("#mensaje_nuevo").show();
-                   //$('#aperturar_curso').modal('hide');
+           if($('#ciclo_val').val()!='0'){
+            if($('#semestre_curso_grupo_crear').val()!='000'){
+                if($('#gru_max_alum').val()>20){
+                    $.ajax({
+                        type:'POST',
+                        url:'@{Application.crearGrupo()}',
+                        data:{'gru_iMaxAlumnos':$('#gru_max_alum').val(),'idSemestreCurso':$('#semestre_curso_grupo_crear').val()},
+                        success: function(data) {
+                            $('#crear_grupo').modal('hide');
+                            //$('#mensaje').html(data);
+                            $("#mensaje_nuevo").html("<p>grupo creado</p>");
+                            $("#mensaje_nuevo").show();
+                           //$('#aperturar_curso').modal('hide');
+                        }
+                    });
+                }else{
+                    alerta_div('alert_crear_grupo',' el numero de alumnos debe ser mayor a 20');
                 }
-            });
+            }else{
+                alerta_div('alert_crear_grupo','seleccione un curso');
+            }
+           }else{
+                alerta_div('alert_crear_grupo','seleccione un ciclo');
+           }     
         }
         
         function crearHorario(idGTH,dia,hora){
@@ -187,7 +230,8 @@
                 success: function(data) {              
                    $('#horario_data_dibujo').html(data);
                 }
-            });    
+            });
+            traerHistorial();     
         }
         //*** apertura de curso **/k
         function traerCursosNoAbiertos(id_carga,data_ciclo){
@@ -202,19 +246,27 @@
             });    
         }
         function aperturarCurso(){
-            $.ajax({
-                type:'GET',
-                url:'@{Application.aperturarCurso()}',
-                data:{'idCurso':$('#curso_val_cna').val(),'numAlum':$('#num_alumnos').val()},
-                success: function(data){              
-                   //$('#'+id_carga).html(data);
-                   
-                   $('#aperturar_curso').modal('hide');
-                   $("#mensaje_alert_content").show();
-                   $("#mensaje_nuevo").html("<p>curso aperturado</p>");
-                   
-                }
-            }); 
+        if($('#ciclo_val_cna').val()!='0'){
+            if($('#curso_val_cna').val()!='000'){
+                $.ajax({
+                    type:'GET',
+                    url:'@{Application.aperturarCurso()}',
+                    data:{'idCurso':$('#curso_val_cna').val(),'numAlum':$('#num_alumnos').val()},
+                    success: function(data){              
+                       //$('#'+id_carga).html(data);
+                       
+                       $('#aperturar_curso').modal('hide');
+                       $("#mensaje_alert_content").show();
+                       $("#mensaje_nuevo").html("<p>curso aperturado</p>");
+                       
+                    }
+                }); 
+            }else{
+                alerta_div('alert_aperturar_curso','seleccione un curso');
+            }
+           }else{
+                alerta_div('alert_aperturar_curso','seleccione un ciclo');
+           } 
         }
         //consultarCursos
         
@@ -309,5 +361,8 @@
         #{bar/}
         #{doLayout /}
         </div>
+        <script type="text/javascript">
+            traerHistorial(); 
+        </script>
     </body>
 </html>
